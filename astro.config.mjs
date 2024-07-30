@@ -7,6 +7,7 @@ import solidJs from "@astrojs/solid-js";
 export default defineConfig({
   output: "server",
   adapter: vercel({
+    edgeMiddleware: true
   }),
   integrations: [solidJs()],
   experimental: {
