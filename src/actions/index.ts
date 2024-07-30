@@ -24,7 +24,7 @@ export const server = {
         return { cookieDeleted: true }
       } catch (error) {
         console.error('Error logging out: ', error)
-        throw new Error(error.message || error)
+        throw error;
       }
     },
   })
