@@ -1,5 +1,8 @@
 ---
+import { actions } from "astro:actions";
 import Test from "../components/Test";
+
+const { key } = await actions.test({ key: "42" });
 ---
 
 <html lang="en">
@@ -11,7 +14,7 @@ import Test from "../components/Test";
     <title>Astro</title>
   </head>
   <body>
-    <h1>Astro</h1>
+    <h1>Astro {key}</h1>
     <Test client:only="solid" />
   </body>
 </html>
