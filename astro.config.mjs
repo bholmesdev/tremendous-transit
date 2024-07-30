@@ -7,5 +7,8 @@ import solidJs from "@astrojs/solid-js";
 export default defineConfig({
   output: "server",
   adapter: vercel(),
-  integrations: [solidJs()]
+  integrations: [solidJs()],
+  experimental: {
+    actions: true
+  }
 });
