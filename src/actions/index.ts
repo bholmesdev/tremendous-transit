@@ -10,6 +10,7 @@ export const server = {
     }
   }),
   logoutUser: defineAction({
+    accept: 'form',
     handler: (_, context) => {
       const TOKEN = import.meta.env.TOKEN
   

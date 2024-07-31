@@ -1,6 +1,8 @@
 ---
 import { actions } from "astro:actions";
 import Test from "../components/Test";
+
+const result = Astro.getActionResult(actions.logoutUser);
 ---
 
 <html lang="en">
@@ -14,6 +16,7 @@ import Test from "../components/Test";
   <body>
     <h1>Brave new actions</h1>
     <Test client:only="solid" />
+    {result?.data?.cookieDeleted && <p>Cookie deleted</p>}
 
     <form method="POST" action={actions.logoutUser}>
       <input type="hidden" name="id" value="ben" />
