@@ -1,8 +1,6 @@
 ---
-import { getActionProps, actions } from "astro:actions";
+import { actions } from "astro:actions";
 import Test from "../components/Test";
-
-const { key } = await actions.test({ key: "42" });
 ---
 
 <html lang="en">
@@ -14,11 +12,11 @@ const { key } = await actions.test({ key: "42" });
     <title>Astro</title>
   </head>
   <body>
-    <h1>The secret is {key}</h1>
+    <h1>Brave new actions</h1>
     <Test client:only="solid" />
 
-    <form method="POST">
-      <input {...getActionProps(actions.logoutUser)} />
+    <form method="POST" action="/_actions/getUser">
+      <input type="hidden" name="id" value="ben" />
       <button>Log out</button>
     </form>
   </body>

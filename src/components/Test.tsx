@@ -1,7 +1,7 @@
 import { actions } from "astro:actions";
-import { createResource } from "solid-js";
+import { createResource, Show } from "solid-js";
 
 export default function Test() {
-  const [result] = createResource(() => actions.test({ key: "42" }));
-  return <p>{result()?.key ?? "Loading"}</p>;
+  const [result] = createResource(() => actions.getUser.orThrow({ id: "ben" }));
+  return <Show when={result()}>{(user) => <p>Hello {user().name}</p>}</Show>;
 }

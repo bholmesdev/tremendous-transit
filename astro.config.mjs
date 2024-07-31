@@ -1,12 +1,11 @@
 import { defineConfig } from 'astro/config';
-
-import vercel from "@astrojs/vercel/serverless";
 import solidJs from "@astrojs/solid-js";
+import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
   output: "server",
-  adapter: vercel({
+  adapter: netlify({
     edgeMiddleware: true
   }),
   integrations: [solidJs()],

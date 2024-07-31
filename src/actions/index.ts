@@ -1,11 +1,12 @@
 import { defineAction, z } from 'astro:actions';
 
 export const server = {
-  test: defineAction({
-    input: z.object({key: z.string()}),
+  getUser: defineAction({
+    input: z.object({id: z.string()}),
     async handler(input) {
+      console.log('handling')
       await new Promise((res) => setTimeout(res, 300))
-      return input
+      return { name: 'Ben', id: input.id }
     }
   }),
   logoutUser: defineAction({
