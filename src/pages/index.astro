@@ -15,7 +15,7 @@ import Test from "../components/Test";
     <h1>Brave new actions</h1>
     <Test client:only="solid" />
 
-    <form method="POST" action="/_actions/getUser">
+    <form method="POST" action={actions.logoutUser}>
       <input type="hidden" name="id" value="ben" />
       <button>Log out</button>
     </form>
