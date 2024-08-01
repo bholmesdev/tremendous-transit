@@ -890,7 +890,7 @@ packages:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
 
   astro@file:astro-4.13.0.tgz:
-    resolution: {integrity: sha512-E2BcUBXuH6X4a5XH7LoDm0yGatjJxBpR7pACHVhA0QDLC2tjVEZWXzs/yJZStEREWLFJd1ynSJrXcCmhiYMhyg==, tarball: file:astro-4.13.0.tgz}
+    resolution: {integrity: sha512-roiEMe9Xrpf/vzVPWF+imnuJ6fSWQrqgbSS4HcY8tUnnQwnFe46teuLNoY6soaihVBIHq1fMhrvb+KlEsKVpzA==, tarball: file:astro-4.13.0.tgz}
     version: 4.13.0
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
