@@ -18,5 +18,10 @@
     "astro": "^4.13.0",
     "solid-js": "^1.8.19",
     "typescript": "^5.5.4"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "astro@4.13.0": "patches/astro@4.13.0.patch"
+    }
   }
 }

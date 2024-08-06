@@ -1,0 +1,13 @@
+diff --git a/dist/actions/runtime/route.js b/dist/actions/runtime/route.js
+index c577554e184b8290d9d4f21189bbef3d16044484..955d3f47ea1014a633328987836765f1c7031276 100644
+--- a/dist/actions/runtime/route.js
++++ b/dist/actions/runtime/route.js
+@@ -8,6 +8,8 @@ const POST = async (context) => {
+   }
+   const contentType = request.headers.get("Content-Type");
+   const contentLength = request.headers.get("Content-Length");
++
++  console.log('info', contentType, contentLength, [...request.headers.entries()])
+   let args;
+   if (contentLength === "0") {
+     args = void 0;
