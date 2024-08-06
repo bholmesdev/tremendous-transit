@@ -3,7 +3,6 @@ import { actions } from "astro:actions";
 import Test from "../components/Test";
 
 const result = Astro.getActionResult(actions.logoutUser);
-console.log("$$$result", result);
 ---
 
 <html lang="en">
@@ -20,7 +19,6 @@ console.log("$$$result", result);
     {result?.data?.cookieDeleted && <p>Cookie deleted</p>}
 
     <form method="POST" action={actions.logoutUser}>
-      <input type="hidden" name="id" value="ben" />
       <button>Log out</button>
     </form>
   </body>
