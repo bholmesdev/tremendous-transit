@@ -15,21 +15,20 @@ index c577554e184b8290d9d4f21189bbef3d16044484..70144d67b22e1b473e94db632b7670df
    } else if (contentType && hasContentType(contentType, formContentTypes)) {
      args = await request.clone().formData();
 diff --git a/templates/actions.mjs b/templates/actions.mjs
-index fbd89d75dbf491b4fc04c659faada0793df77d2e..664bf118080984980acf08c37b45eb9151c1850e 100644
+index fbd89d75dbf491b4fc04c659faada0793df77d2e..99befb603ddf8e50ca3f1f90f2bedee4b297f6f9 100644
 --- a/templates/actions.mjs
 +++ b/templates/actions.mjs
-@@ -66,9 +66,11 @@ async function handleActionOrThrow(param, path) {
+@@ -66,8 +66,11 @@ async function handleActionOrThrow(param, path) {
  				message: `Failed to serialize request body to JSON. Full error: ${e.message}`,
  			});
  		}
 -		headers.set('Content-Type', 'application/json');
 -		headers.set('Content-Length', body?.length.toString() ?? '0');
--	}
 +		if (body?.length > 0) {
 +			headers.set('Content-Type', 'application/json');
 +		} else {
 +			headers.set('Content-Length', '0');
 +		}
+ 	}
  	const res = await fetch(`/_actions/${path}`, {
  		method: 'POST',
- 		body,
