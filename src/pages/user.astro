@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button> Log out </button>
+  </body>
+</html>
+
+<script>
+  import { actions } from "astro:actions";
+
+  document.querySelector("button")?.addEventListener("click", async () => {
+    const response = await actions.logout();
+
+    if (response.data?.success) {
+      alert("Logged out");
+    }
+  });
+</script>

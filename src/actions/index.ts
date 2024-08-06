@@ -9,6 +9,11 @@ export const server = {
       return { name: 'Ben', id: input.id }
     }
   }),
+  logout: defineAction({
+    async handler() {
+      return { success: true }
+    }
+  }),
   logoutUser: defineAction({
     accept: 'form',
     handler: (_, context) => {
