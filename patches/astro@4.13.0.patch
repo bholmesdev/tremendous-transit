@@ -1,13 +1,35 @@
 diff --git a/dist/actions/runtime/route.js b/dist/actions/runtime/route.js
-index c577554e184b8290d9d4f21189bbef3d16044484..1f91753bf55c130d2e16ba2450db06039a3620dd 100644
+index c577554e184b8290d9d4f21189bbef3d16044484..70144d67b22e1b473e94db632b7670dfcd2cedde 100644
 --- a/dist/actions/runtime/route.js
 +++ b/dist/actions/runtime/route.js
-@@ -8,6 +8,8 @@ const POST = async (context) => {
+@@ -8,8 +8,10 @@ const POST = async (context) => {
    }
    const contentType = request.headers.get("Content-Type");
    const contentLength = request.headers.get("Content-Length");
 +
 +  console.log('info', contentType, contentLength, [...request.headers.entries()], await request.clone().text());
    let args;
-   if (contentLength === "0") {
+-  if (contentLength === "0") {
++  if (!contentType || contentLength === "0") {
      args = void 0;
+   } else if (contentType && hasContentType(contentType, formContentTypes)) {
+     args = await request.clone().formData();
+diff --git a/templates/actions.mjs b/templates/actions.mjs
+index fbd89d75dbf491b4fc04c659faada0793df77d2e..664bf118080984980acf08c37b45eb9151c1850e 100644
+--- a/templates/actions.mjs
++++ b/templates/actions.mjs
+@@ -66,9 +66,11 @@ async function handleActionOrThrow(param, path) {
+ 				message: `Failed to serialize request body to JSON. Full error: ${e.message}`,
+ 			});
+ 		}
+-		headers.set('Content-Type', 'application/json');
+-		headers.set('Content-Length', body?.length.toString() ?? '0');
+-	}
++		if (body?.length > 0) {
++			headers.set('Content-Type', 'application/json');
++		} else {
++			headers.set('Content-Length', '0');
++		}
+ 	const res = await fetch(`/_actions/${path}`, {
+ 		method: 'POST',
+ 		body,
