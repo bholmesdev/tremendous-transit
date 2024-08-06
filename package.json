@@ -14,7 +14,8 @@
     "@astrojs/netlify": "^5.4.0",
     "@astrojs/node": "^8.3.2",
     "@astrojs/solid-js": "^4.4.0",
-    "astro": "file:./astro-4.13.0.tgz",
+    "@astrojs/vercel": "^7.7.2",
+    "astro": "^4.13.0",
     "solid-js": "^1.8.19",
     "typescript": "^5.5.4"
   }
